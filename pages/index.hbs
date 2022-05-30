@@ -1,1 +1,67 @@
-<h1>Hello app</h1>
+<div class="ui stackable grid">
+  <!-- Menu column -->
+  <div class="twelve wide column">
+    <h1>{{username}} uchun</h1><br>
+    <div class="ui four doubling cards">
+
+      {{#each burgers}}
+      <div class="ui red link card">
+        <div class="content">
+          <div class="header">{{name}}</div>
+        </div>
+
+        <div class="image">
+          <img src="{{url}}">
+        </div>
+
+        <div class="content">
+          <div class="ui fluid left labeled button" tabindex="0">
+
+            <span class="ui basic right pointing label">
+              {{price}} UZS
+            </span>
+            <a href="/buy/{{id}}" class="ui blue button">Buy</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <!-- Cart column -->
+
+  <div class="four wide column">
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="header"> <i class="ui cart blue icon"></i> Cart</div>
+      </div>
+      <div class="content">
+        <div class="ui middle aligned divided list">
+          {{#each cart.items}}
+          <div class="item">
+            <div class="right floated content">
+              <div class="ui medium blue label">{{price}} UZS</div>
+              <a class="ui mini icon button" href="/remove/{{id}}">
+                <i class="ui remove icon"></i>
+              </a>
+            </div>
+            <!-- Name -->
+            <div class="content">
+              <div class="cart-item">
+                {{name}}
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="content">
+        <h4>Total: {{cart.total}} UZS</h4>
+        <div class="ui fluid buttons">
+          <a href="#clear" class="ui button">Clear All</a>
+          <a href="/confirm" class="ui positive button">Confirm</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
